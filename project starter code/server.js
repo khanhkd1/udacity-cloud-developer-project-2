@@ -9,6 +9,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util.js';
 
   // Set the network port
   const port = process.env.PORT || 8082;
+  const host = process.env.HOST || '0.0.0.0';
   
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
@@ -56,7 +57,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util.js';
   
 
   // Start the Server
-  app.listen( port, () => {
+  app.listen( port, host, () => {
       console.log( `server running http://localhost:${ port }` );
       console.log( `press CTRL+C to stop server` );
   } );
